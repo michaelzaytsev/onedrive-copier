@@ -1,0 +1,41 @@
+<div class="flex flex-column gap-4 w-full xl:flex-row xl:gap-0">
+    <div class="flex flex-column xl:w-6 xl:pr-2">
+        <div class="flex justify-content-between align-items-center">
+            <h4>Choose source files...</h4>
+            <app-onedrive-drive-type-select
+                [disabled]="sourceTableLoading || targetTableLoading"
+                [value]="sourceDriveType"
+                (valueChange)="handleSourceDriveTypeChange($event)"
+            ></app-onedrive-drive-type-select>
+        </div>
+        <app-onedrive-explore-table
+            [driveType]="sourceDriveType"
+            [loading]="sourceTableLoading"
+            [scrollable]="true"
+            [scrollHeight]="tableScrollHeight"
+            [type]="OneDriveExploreTableType.Source"
+            (loadingChange)="handleSourceTableLoadingChange($event)"
+            (selectionChange)="handleSourceTableSelectionChange($event)"
+        ></app-onedrive-explore-table>
+    </div>
+
+    <div class="flex flex-column xl:w-6 xl:pl-2">
+        <div class="flex justify-content-between align-items-center">
+            <h4>Choose a destination folder...</h4>
+            <app-onedrive-drive-type-select
+                [disabled]="sourceTableLoading || targetTableLoading"
+                [value]="targetDriveType"
+                (valueChange)="handleTargetDriveTypeChange($event)"
+            ></app-onedrive-drive-type-select>
+        </div>
+        <app-onedrive-explore-table
+            [driveType]="targetDriveType"
+            [loading]="targetTableLoading"
+            [scrollable]="true"
+            [scrollHeight]="tableScrollHeight"
+            [type]="OneDriveExploreTableType.Target"
+            (loadingChange)="handleTargetTableLoadingChange($event)"
+            (selectionChange)="handleTargetTableSelectionChange($event)"
+        ></app-onedrive-explore-table>
+    </div>
+</div>

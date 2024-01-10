@@ -1,0 +1,15 @@
+<p-selectButton
+    [unselectable]="true"
+    [disabled]="!!disabled"
+    [options]="options"
+    optionValue="value"
+    [ngModel]="value"
+    (ngModelChange)="handleChange($event)"
+>
+    <ng-template let-item pTemplate>
+        <div class="flex align-items-center">
+            <i [class]="item.icon"></i>
+            <span class="ml-2">{{ item.label }}</span>
+        </div>
+    </ng-template>
+</p-selectButton>

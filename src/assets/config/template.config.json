@@ -1,0 +1,10 @@
+{
+    "auth": {
+        "clientId": "<onedrive-copier-ui--client-id>",
+        "tenantId": "<active-ad--tenant-id>",
+        "redirectUri": "http://localhost:4200",
+        "postLogoutRedirectUri": "http://localhost:4200",
+        "protectedResourceMap": [["https://graph.microsoft.com/v1.0/me", ["user.read", "files.readwrite"]]],
+        "scopes": ["user.read", "files.readwrite"]
+    }
+}

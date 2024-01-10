@@ -1,0 +1,38 @@
+// Button Set
+
+.p-buttonset .p-element .p-button {
+    border-radius: 6px;
+}
+
+.p-buttonset .p-element:last-of-type .p-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.p-buttonset .p-element:first-of-type .p-element {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.p-buttonset .p-element:not(:first-of-type):not(:last-of-type) .p-button {
+    border-radius: 0;
+}
+
+// Dialog
+
+.p-dialog .p-dialog-footer .p-element:last-child button {
+    margin-right: 0;
+}
+
+// Overlay
+
+.p-component-overlay.p-component-overlay {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+// Toast
+
+.p-toast-detail {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}

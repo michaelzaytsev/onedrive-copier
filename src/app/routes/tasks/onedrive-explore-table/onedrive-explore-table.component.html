@@ -1,0 +1,18 @@
+<div class="flex flex-column">
+    <app-onedrive-explore-table-navigation
+        [disabled]="loading"
+        [items]="breadcrumbItems"
+        (homeClick)="handleHomeClick()"
+        (itemClick)="handleNavigationItemClick($event)"
+    ></app-onedrive-explore-table-navigation>
+    <app-file-explore-table
+        [items]="items"
+        [loading]="loading"
+        [scrollable]="scrollable"
+        [scrollHeight]="scrollHeight"
+        [selection]="selectedItems"
+        [selectionMode]="type === OneDriveExploreTableType.Source ? 'multiple' : 'single'"
+        (folderClick)="handleFolderClick($event)"
+        (selectionChange)="handleSelectionChange($event)"
+    ></app-file-explore-table>
+</div>

@@ -1,0 +1,36 @@
+<div class="flex align-items-center mb-2">
+    <ng-container *ngIf="!!currentItem; then currentItemExists; else currentItemNotExists"></ng-container>
+    <ng-template #currentItemNotExists>
+        <p-button
+            [disabled]="disabled"
+            [rounded]="true"
+            [text]="true"
+            icon="pi pi-refresh"
+            (click)="handleRefreshClick()"
+        ></p-button>
+    </ng-template>
+    <ng-template #currentItemExists>
+        <div class="p-buttonset flex-shrink-0">
+            <p-button
+                [disabled]="disabled"
+                [text]="true"
+                icon="pi pi-refresh"
+                (click)="handleRefreshClick()"
+            ></p-button>
+            <p-button [disabled]="disabled" [text]="true" icon="pi pi-home" (click)="handleHomeClick()"></p-button>
+            <p-button [disabled]="disabled" [text]="true" icon="pi pi-arrow-up" (click)="handleUpClick()"></p-button>
+            <ng-template [ngIf]="menuItems.length > 0">
+                <p-button
+                    [disabled]="disabled"
+                    [text]="true"
+                    icon="pi pi-ellipsis-v"
+                    (click)="menu.toggle($event)"
+                ></p-button>
+                <p-menu #menu [model]="menuItems" [popup]="true"></p-menu>
+            </ng-template>
+        </div>
+        <span class="px-3 text-overflow-ellipsis white-space-nowrap overflow-hidden">{{
+            currentItem!.driveItemName
+        }}</span>
+    </ng-template>
+</div>

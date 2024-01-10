@@ -1,0 +1,6 @@
+export const DIALOG_HEIGHT_RATE = 0.86;
+export const DIALOG_HEADER_HEIGHT = 80;
+export const DIALOG_FOOTER_HEIGHT = 85;
+export const DIALOG_CONTENT_PADDINGS = 32;
+export const TABLE_TITLE_HEIGHT = 62;
+export const TABLE_BREADCRUMB_HEIGHT = 56;

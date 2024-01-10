@@ -1,0 +1,16 @@
+<p-table [value]="tasks" [reorderableColumns]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 3rem"></th>
+            <th>Status</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-task="rowData" let-index="rowIndex">
+        <tr [pReorderableRow]="index">
+            <td>
+                <span class="pi pi-bars" pReorderableRowHandle></span>
+            </td>
+            <td>{{ task.status }}</td>
+        </tr>
+    </ng-template>
+</p-table>

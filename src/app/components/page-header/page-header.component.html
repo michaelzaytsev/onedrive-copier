@@ -1,0 +1,23 @@
+<div class="h-4rem fixed top-0 left-0 w-full shadow-1 pl-4 pr-2 flex align-items-center justify-content-between gap-4">
+    <div class="flex-shrink-0 flex align-items-center gap-2">
+        <i class="pi pi-cloud text-xl text-primary"></i>
+        <span class="font-semibold">{{ title }}</span>
+    </div>
+    <div class="h-full flex flex-grow-1 align-items-center justify-content-end gap-2">
+        <ng-container *ngIf="name && email; then authenticated; else notAuthenticated"></ng-container>
+        <ng-template #authenticated>
+            <span>{{ name }} ({{ email }})</span>
+            <p-button
+                #authenticated
+                icon="pi pi-power-off"
+                [rounded]="true"
+                [text]="true"
+                severity="danger"
+                (click)="handleLogout()"
+            ></p-button>
+        </ng-template>
+        <ng-template #notAuthenticated>
+            <span>Guest</span>
+        </ng-template>
+    </div>
+</div>

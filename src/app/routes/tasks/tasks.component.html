@@ -1,0 +1,13 @@
+<div class="flex flex-column gap-1">
+    <div class="flex flex-column">
+        <h3>Active task</h3>
+        <app-active-task></app-active-task>
+    </div>
+    <div class="flex flex-column">
+        <div class="flex justify-content-between align-items-center">
+            <h3>Tasks</h3>
+            <p-button label="Add a task" (click)="handleAddTaskClick()"></p-button>
+        </div>
+        <app-tasks-table></app-tasks-table>
+    </div>
+</div>
