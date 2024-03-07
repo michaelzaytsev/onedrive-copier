@@ -12,6 +12,7 @@
         [scrollHeight]="scrollHeight"
         [selection]="selectedItems"
         [selectionMode]="type === OneDriveExploreTableType.Source ? 'multiple' : 'single'"
+        [selectionItemType]="type === OneDriveExploreTableType.Source ? 'all' : 'folder'"
         (folderClick)="handleFolderClick($event)"
         (selectionChange)="handleSelectionChange($event)"
     ></app-file-explore-table>

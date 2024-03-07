@@ -71,11 +71,11 @@ export class AddTaskDialogBodyComponent {
     protected handleTargetTableSelectionChange(
         item: null | OneDriveExploreTableItem | OneDriveExploreTableItem[],
     ): void {
-        this.onTargetSelected(this.targetDriveType, item as null | OneDriveExploreTableItem);
+        this.onTargetSelected(item as null | OneDriveExploreTableItem);
     }
 
     private onSourceSelected: (items: OneDriveExploreTableItem[]) => void;
-    private onTargetSelected: (driveType: OneDriveDriveType, item: null | OneDriveExploreTableItem) => void;
+    private onTargetSelected: (item: null | OneDriveExploreTableItem) => void;
 
     private getOppositeDriveType(driveType: OneDriveDriveType): OneDriveDriveType {
         return driveType === OneDriveDriveType.Root ? OneDriveDriveType.SharedWithMe : OneDriveDriveType.Root;

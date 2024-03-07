@@ -2,11 +2,6 @@ export interface OneDriveChildrenResponse<TDriveItem> {
     value: TDriveItem[];
 }
 
-export interface OneDriveDrive {
-    id: string;
-    driveType: string;
-}
-
 export interface OneDriveSharedDriveItem extends OneDriveBaseItem {
     remoteItem: OneDriveDriveItem;
 }
@@ -31,3 +26,15 @@ interface OneDriveParentReference {
 interface OneDriveFile {}
 
 interface OneDriveFolder {}
+
+export interface OneDriveDriveItemCopyProgress {
+    percentageComplete: number;
+    status: OneDriveDriveItemCopyProgressStatus;
+    statusDescription: string;
+}
+
+export enum OneDriveDriveItemCopyProgressStatus {
+    NotStarted = 'notStarted',
+    InProgress = 'inProgress',
+    Completed = 'completed',
+}

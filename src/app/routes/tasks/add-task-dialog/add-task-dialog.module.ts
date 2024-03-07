@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { OneDriveModule } from '../../../providers/onedrive/onedrive.module';
 import { OneDriveDriveTypeSelectModule } from '../onedrive-drive-type-select/onedrive-drive-type-select.module';
 import { OneDriveExploreTableModule } from '../onedrive-explore-table/onedrive-explore-table.module';
 import { AddTaskDialogBodyComponent } from './add-task-dialog-body.component';
@@ -14,6 +15,7 @@ import { AddTaskDialogService } from './add-task-dialog.service';
         DynamicDialogModule,
         OneDriveDriveTypeSelectModule,
         OneDriveExploreTableModule,
+        OneDriveModule,
         SelectButtonModule,
     ],
     declarations: [AddTaskDialogBodyComponent, AddTaskDialogFooterComponent],

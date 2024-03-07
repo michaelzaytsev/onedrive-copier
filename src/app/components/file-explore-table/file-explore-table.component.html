@@ -16,15 +16,33 @@
             <th pSortableColumn="modifiedAt">Modified <p-sortIcon field="modifiedAt"></p-sortIcon></th>
         </tr>
     </ng-template>
-    <ng-container
-        *ngIf="selectionMode === 'single'; then singleSelectionMode; else multipleSelectionMode"
-    ></ng-container>
-    <ng-template #singleSelectionMode pTemplate="body" let-item>
+
+    <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+        <ng-container
+            *ngTemplateOutlet="
+                selectionMode === 'single'
+                    ? selectionItemType === 'all'
+                        ? singleSelectableRow
+                        : item.type === FileExploreTableItemType.Folder
+                          ? singleSelectableRow
+                          : singleNotSelectableRow
+                    : multipleSelectionMode;
+                context: { $implicit: item, rowIndex }
+            "
+        ></ng-container>
+    </ng-template>
+
+    <ng-template #singleSelectableRow let-item>
         <tr [pSelectableRow]="item">
-            <ng-container *ngTemplateOutlet="bodyRow; context: { item }"></ng-container>
+            <ng-container *ngTemplateOutlet="bodyRow; context: { $implicit: item }"></ng-container>
         </tr>
     </ng-template>
-    <ng-template #multipleSelectionMode pTemplate="body" let-item let-rowIndex="rowIndex">
+    <ng-template #singleNotSelectableRow let-item>
+        <tr>
+            <ng-container *ngTemplateOutlet="bodyRow; context: { $implicit: item }"></ng-container>
+        </tr>
+    </ng-template>
+    <ng-template #multipleSelectionMode let-item let-rowIndex="rowIndex">
         <tr [pSelectableRow]="item" [pSelectableRowIndex]="rowIndex">
             <ng-container *ngTemplateOutlet="bodyRow; context: { $implicit: item }"></ng-container>
         </tr>
@@ -43,6 +61,6 @@
             <span class="ml-2 cursor-pointer hover:underline" (click)="handleFolderClick(item)">{{ item.name }}</span>
         </ng-template>
     </td>
-    <td>{{ item.size }}</td>
+    <td>{{ item.size | filesize }}</td>
     <td>{{ item.modifiedAt | date: 'short' }}</td>
 </ng-template>

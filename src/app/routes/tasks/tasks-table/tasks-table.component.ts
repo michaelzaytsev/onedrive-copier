@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Task, TasksService } from '../tasks.service';
+import { TasksService } from '../tasks.service';
+import { Task } from '../tasks.types';
 
 @Component({
     selector: 'app-tasks-table',
@@ -8,6 +9,10 @@ import { Task, TasksService } from '../tasks.service';
 export class TasksTableComponent {
     constructor(public tasksService: TasksService) {
         this.tasksService.tasks$.subscribe(tasks => void (this.tasks = tasks));
+    }
+
+    handleRowReorder() {
+        this.tasksService.setTasks(this.tasks);
     }
 
     protected tasks: Task[] = [];

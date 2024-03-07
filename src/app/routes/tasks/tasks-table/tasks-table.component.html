@@ -1,16 +1,24 @@
-<p-table [value]="tasks" [reorderableColumns]="true">
+<p-table [value]="tasks" [reorderableColumns]="true" (onRowReorder)="handleRowReorder()">
     <ng-template pTemplate="header">
         <tr>
             <th style="width: 3rem"></th>
             <th>Status</th>
+            <th>Destination</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-task="rowData" let-index="rowIndex">
+    <ng-template pTemplate="body" let-task let-index="rowIndex">
         <tr [pReorderableRow]="index">
             <td>
                 <span class="pi pi-bars" pReorderableRowHandle></span>
             </td>
             <td>{{ task.status }}</td>
+            <ng-container *ngIf="task.targetDrive; then driveTarget; else folderTarget"></ng-container>
+            <ng-template #driveTarget>
+                <td>/</td>
+            </ng-template>
+            <ng-template #folderTarget>
+                <td>/{{ task.targetItem.name }}</td>
+            </ng-template>
         </tr>
     </ng-template>
 </p-table>

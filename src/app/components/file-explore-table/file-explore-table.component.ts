@@ -26,6 +26,9 @@ export class FileExploreTableComponent {
     @Input()
     selectionMode!: 'multiple' | 'single';
 
+    @Input()
+    selectionItemType: 'all' | 'folder' = 'all';
+
     @Output()
     folderClick = new EventEmitter<FileExploreTableItem>();
 

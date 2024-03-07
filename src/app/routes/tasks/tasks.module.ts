@@ -7,6 +7,7 @@ import { AddTaskDialogModule } from './add-task-dialog/add-task-dialog.module';
 import { TasksRouterModule } from './tasks-router.module';
 import { TasksTableModule } from './tasks-table/tasks-table.module';
 import { TasksRouteComponent } from './tasks.component';
+import { TasksService } from './tasks.service';
 
 @NgModule({
     imports: [
@@ -19,5 +20,6 @@ import { TasksRouteComponent } from './tasks.component';
         TasksTableModule,
     ],
     declarations: [TasksRouteComponent],
+    providers: [TasksService],
 })
 export class TasksRouteModule {}
